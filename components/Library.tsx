@@ -3,10 +3,22 @@ import React from "react";
 import Image from "next/image";
 import LibraryIcon from "../public/LibraryIcon.svg";
 import { AiOutlinePlus } from "react-icons/ai";
-const onclick = () => {
-  //handle upload later
-};
+import useAuthModal from "@/hooks/useAuthModal";
+import { useUser } from "@/hooks/useUser";
+import useUploadModal from "@/hooks/useUploadModal";
+
 const Library = () => {
+  const authModal = useAuthModal();
+  const { user } = useUser();
+  const UploadModal = useUploadModal();
+
+  const onclick = () => {
+    if (!user) {
+      return authModal.onOpen();
+    }
+    //TODO: Check for subscriptions
+    return UploadModal.onOpen();
+  };
   return (
     <div className="flex flex-col ">
       <div className="flex items-center justify-between px-5 pt-4">
