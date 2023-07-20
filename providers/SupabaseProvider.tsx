@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Database } from "@/types_db";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
