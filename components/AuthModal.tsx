@@ -26,7 +26,7 @@ const AuthModal = () => {
 
   const onChange = (open: boolean) => {
     if (!open) {
-      onClose;
+      onClose();
     }
   };
   return (
